@@ -1,4 +1,5 @@
-﻿using Balta.ContextoConteudo;
+﻿using Balta.ContextoAssinatura;
+using Balta.ContextoConteudo;
 
 internal class Program
 {
@@ -28,7 +29,7 @@ internal class Program
         };
 
         var carreiraDotNet = new Carreira("Especialista .NET", "especialista-dotnet");
-        var itemCarreira = new ItemCarreira(1, "Comece por aqui", "Teste", cursoCSharp);
+        var itemCarreira = new ItemCarreira(1, "Comece por aqui", "Teste", cursos: null);
         var itemCarreira3 = new ItemCarreira(3, "Aprenda .NET", "Teste", cursoAspNet);
         var itemCarreira2 = new ItemCarreira(2, "Aprenda OOP", "Teste", cursoAspNet);
         carreiraDotNet.Items.Add(itemCarreira);
@@ -44,10 +45,20 @@ internal class Program
             foreach (var item in carreira.Items.OrderBy(x => x.Ordem))
             {
                 Console.WriteLine($"{item.Ordem} - {item.Titulo}");
-                Console.WriteLine($"{item.Cursos.Titulo}");
-                Console.WriteLine($"{item.Cursos.Nivel}");
+                Console.WriteLine($"{item.Cursos?.Titulo}");
+                Console.WriteLine($"{item.Cursos?.Nivel}");
+                Console.WriteLine($"{item.Cursos?.DuracaoEmMinutos}");
+                foreach (var notification in item.Notificaocoes)
+                {
+                    Console.WriteLine($"{notification.Mensagem}, ocorreu na classe: {notification.Propriedade}");
+                }
             }
         }
+
+        var payPal = new AssinaturaPayPal();
+        var aluno = new Aluno();
+
+        aluno.CriarAssintaura(payPal);
 
     }
 }

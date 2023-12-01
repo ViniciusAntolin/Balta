@@ -1,6 +1,8 @@
-﻿namespace Balta.ContextoConteudo
+﻿using Balta.ContextoCompartilhado;
+
+namespace Balta.ContextoConteudo
 {
-    public class Modulo : BaseConteudo
+    public class Modulo : Base
     {
         public Modulo() => Aulas = new List<Aula>();
         public int Ordem { get; set; }

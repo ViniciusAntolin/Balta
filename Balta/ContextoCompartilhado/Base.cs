@@ -1,10 +1,10 @@
 ﻿using Balta.ContextoNotificacao;
 
-namespace Balta.ContextoConteudo
+namespace Balta.ContextoCompartilhado
 {
-    public class BaseConteudo : Notificavel
+    public class Base : Notificavel
     {
-        public BaseConteudo()
+        public Base()
         {
             Codigo = Guid.NewGuid(); //Indica o ponto unico de falha, pois todos ids estão sendo gerados nessa classe e neste momento.;
         }

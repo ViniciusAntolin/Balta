@@ -2,15 +2,22 @@
 {
     public abstract class Notificavel
     {
-        public List<Notificaocao> Notificaocaos { get; set; }
+        public List<Notificaocao> Notificaocoes { get; set; }
 
-        public void Add(Notificaocao notificaocao)
+        public Notificavel()
         {
-            Notificaocaos.Add(notificaocao);
+            Notificaocoes = new List<Notificaocao>();
         }
-        public void AddRange(IEnumerable<Notificaocao> notificaocao)
+
+        public void AddNotificacao(Notificaocao notificaocao)
         {
-            Notificaocaos.AddRange(notificaocao);
+            Notificaocoes.Add(notificaocao);
         }
+        public void AddNoticacoes(IEnumerable<Notificaocao> notificaocao)
+        {
+            Notificaocoes.AddRange(notificaocao);
+        }
+
+        public bool EhInvalido => Notificaocoes.Any();
     }
 }

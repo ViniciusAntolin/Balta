@@ -1,6 +1,8 @@
-﻿namespace Balta.ContextoConteudo
+﻿using Balta.ContextoCompartilhado;
+
+namespace Balta.ContextoConteudo
 {
-    public abstract class Conteudo : BaseConteudo // Classe Base
+    public abstract class Conteudo : Base // Classe Base
     {
         public Conteudo(string titulo, string url)
         {

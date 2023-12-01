@@ -10,6 +10,14 @@ namespace Balta.ContextoConteudo
             Modulos = new List<Modulo>();
         }
 
+        public Curso(string titulo, string url, IList<Modulo>? modulos, int duracaoEmMinutos, ENivelConteudo nivel)
+            : base(titulo, url)
+        {
+            Modulos = modulos;
+            DuracaoEmMinutos = duracaoEmMinutos;
+            Nivel = nivel;
+        }
+
         public string? Tag { get; set; }
         public IList<Modulo>? Modulos { get; set; }
         public int DuracaoEmMinutos { get; set; }
